@@ -5,5 +5,7 @@ import kotlinx.serialization.Serializable
 sealed interface ScreenRoutes {
 
     @Serializable
-    data object UserScreen : ScreenRoutes
+    data object SplashRoute : ScreenRoutes
+    @Serializable
+    data object UserRoute : ScreenRoutes
 }

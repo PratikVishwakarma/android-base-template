@@ -6,6 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.template.presentation.screens.user.UserScreen
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.template.presentation.screens.splash.SplashScreen
+import com.example.template.presentation.screens.splash.SplashViewModel
 import com.example.template.presentation.screens.user.UserViewModel
 
 @Composable
@@ -15,10 +17,17 @@ fun AppNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = ScreenRoutes.UserScreen
+        startDestination = ScreenRoutes.SplashRoute
     ) {
 
-        composable<ScreenRoutes.UserScreen> {
+        composable<ScreenRoutes.SplashRoute> {
+
+            val viewModel: SplashViewModel = hiltViewModel()
+
+            SplashScreen(navController, viewModel = viewModel)
+        }
+
+        composable<ScreenRoutes.UserRoute> {
 
             val viewModel: UserViewModel = hiltViewModel()
 
